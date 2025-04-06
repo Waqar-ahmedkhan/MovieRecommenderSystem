@@ -4,37 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Recommender</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Welcome to the Movie Recommender System!</h2>
-    <p>Enter a movie name to get recommendations:</p>
-    <form action="/recommend" method="POST">
-        <input type="text" name="movie_name" placeholder="Enter movie name" required>
-        <button type="submit">Get Recommendations</button>
-    </form>
+    <div class="container">
+        <header>
+            <h1>Movie Recommender</h1>
+            <p>Enter your favorite movie to get similar movie recommendations.</p>
+        </header>
+
+        <div class="form-container">
+            <form action="/recommend" method="post">
+                <input type="text" name="movie_name" placeholder="Enter Movie Name" required>
+                <button type="submit">Get Recommendations</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

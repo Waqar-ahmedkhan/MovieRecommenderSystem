@@ -4,47 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recommendations</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h2 {
-            color: #333;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            font-size: 18px;
-            margin: 10px;
-            padding: 8px;
-            background-color: #f4f4f4;
-            border-radius: 5px;
-        }
-        a {
-            text-decoration: none;
-            font-size: 16px;
-            color: #007BFF;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Movie Recommendations for "{{ movie_name }}"</h2>
-    {% if recommended_movies %}
-        <ul>
-            {% for movie in recommended_movies %}
-                <li>{{ movie }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No recommendations found for "{{ movie_name }}". Try another movie!</p>
-    {% endif %}
-    <a href="/">Go Back</a>
+    <div class="container">
+        <header>
+            <h1>Movie Recommendations</h1>
+            <p>Movies similar to "{{ movie_name }}"</p>
+        </header>
+
+        <div class="recommendations">
+            {% if recommended_movies %}
+                <ul>
+                    {% for movie in recommended_movies %}
+                        <li>{{ movie }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No recommendations found.</p>
+            {% endif %}
+        </div>
+
+        <div class="back-button">
+            <a href="/">Go Back</a>
+        </div>
+    </div>
 </body>
 </html>
